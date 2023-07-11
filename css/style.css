@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2&family=Roboto&family=Turret+Road&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Exo 2", "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.navbar-custom {
+  background-color: #635985;
+}
+
+.banner--container__icg {
+  position: relative;
+  width: 100%;
+}
+
+.banner--container__icg img {
+  width: 100%;
+}
+
+.banner--message__icg {
+  position: absolute;
+  top: 35%;
+  left: 2%;
+  /* z-index: -1; */
+  max-width: 100%;
+  width: auto;
+  color: #fefefe;
+  box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.562);
+  border-radius: 10px;
+  padding: 5px;
+  align-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

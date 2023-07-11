@@ -1,0 +1,23 @@
+.banner--container__icg {
+  position: relative;
+  width: 100%;
+}
+
+.banner--container__icg img {
+  width: 100%;
+}
+
+.banner--message__icg {
+  position: absolute;
+  top: 35%;
+  left: 2%;
+  /* z-index: -1; */
+  max-width: 100%;
+  width: auto;
+  color: #fefefe;
+  box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.562);
+  border-radius: 10px;
+  padding: 5px;
+  align-content: center;
+  align-items: center;
+}
