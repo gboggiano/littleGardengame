@@ -137,4 +137,9 @@ if (fourthChoise == "no") {
     " Sabia decisión, te montas nuevamente en tu barco y regresas sano y salvo con tu familia.. Adios"
   );
   debugger;
+} else if (fourthChoise == "si") {
+  alert(
+    " Me alegra que quieras seguir explorando, este proyecto está en contrucción pronto estará la versión completa disponible! "
+  );
+  debugger;
 }
