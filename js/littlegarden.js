@@ -34,13 +34,13 @@ function sumCordura(num1, num2) {
 }
 
 function statusCordura() {
-  console.info("Tu cordura es de:  " + usuario.cordura + "!");
+  console.warn("Tu cordura es de:  " + usuario.cordura + "!");
 }
 
 let es1 = prompt(
   "ya recordando tu nombre " +
     usuario.nombre +
-    " logras calmarte un poco miras a tu alrededor. Estás rodeado de plantas y flores de todos los colores y formas. Algunas son hermosas y fragantes, otras son extrañas y repulsivas. El sol brilla con fuerza en el cielo azul, y una brisa suave mece las hojas. \n \n  ves la verja metálica que rodea el jardín. Es alta y sólida, con puntas afiladas en la parte superior. Parece imposible saltarla o romperla \n \n  Te acercas a la verja y que haces? a) la tocas para ver si de algun modo se puede doblar o b) te das media vuelta y tratas de seguir ubicanmdote (solo escriba la letra (a) o (b)"
+    " logras calmarte un poco miras a tu alrededor. Estás rodeado de plantas y flores de todos los colores y formas. Algunas son hermosas y fragantes, otras son extrañas y repulsivas. El sol brilla con fuerza en el cielo azul, y una brisa suave mece las hojas. \n \n Ves las rejas metálica que rodea el jardín, es alta y sólida, con puntas afiladas en la parte superior. Parece imposible saltarla o romperla \n \n Te acercas a las rejas y que haces? \n \n  a) la tocas para ver si de algun modo se puede doblar \n \n  b) te das media vuelta y tratas de seguir ubicandote \n \n (solo escriba la letra (a) o (b)"
 );
 
 while (es1 != "a" && es1 != "b") {
@@ -52,9 +52,35 @@ while (es1 != "a" && es1 != "b") {
 if (es1 === "a") {
   usuario.cordura = sustCordura(usuario.cordura, 10);
   statusCordura();
+  window.alert(
+    "Está electrificada. Una descarga te recorre el brazo y te hace retroceder con un grito."
+  );
 } else if (es1 === "b") {
   usuario.cordura = sustCordura(usuario.cordura, 0);
   statusCordura();
 }
 
-window.alert("tu cordura actual es de " + usuario.cordura);
+let es1A = prompt(
+  "Decides explorar el jardín en busca de alguna salida o alguna pista. Caminas sin rumbo fijo entre las plantas, evitando las más sospechosas o peligrosas.\n \n De repente, ves una casa al fondo del jardín. Es una casa antigua y deteriorada, con las ventanas rotas y la pintura desconchada. Parece abandonada desde hace años... \n \n  te vas acercando a ella cuando de repente sientes que pisas algo, miras hacia abajo y ves un mechero, se ve oxidado pero puede funcionar... que haces? \n \n  a) lo dejas, se ve en mal estado y no sabes de quien es.. \n \n  b) lo tomas y lo guardas, quizas sea útil"
+);
+
+const inventario = [];
+
+es1A = es1A.trim().charAt(0).toUpperCase();
+
+switch (es1A) {
+  case "A":
+    console.warn("No tomas nada, tu inventario está vacio");
+    break;
+
+  case "B":
+    inventario.push("mechero");
+    alert("has agarrado: " + inventario);
+    break;
+
+  default:
+    console.log("No has ingresado una opcion valida");
+}
+
+console.log("tu inventario se ha actualizado , tienes :" + inventario);
+console.log(inventario);
