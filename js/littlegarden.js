@@ -82,5 +82,30 @@ switch (es1A) {
     console.log("No has ingresado una opcion valida");
 }
 
-console.log("tu inventario se ha actualizado , tienes :" + inventario);
+console.log(
+  "tu inventario se ha actualizado , actualmente tienes los siguientes items :" +
+    inventario
+);
 console.log(inventario);
+
+let es2 = prompt(
+  "Te diriges hacia la casa, con cautela. Al llegar a la puerta, ves que está entreabierta. Empujas con la mano y entras.\n \n El interior de la casa está oscuro y sucio. Hay polvo y telarañas por todas partes. El suelo cruje bajo tus pies. El aire huele a humedad y a podredumbre. \n \n  Te sientes incómodo en esta casa. Sientes que no deberías estar aquí, que hay algo malo en este lugar. ero también sientes curiosidad por saber más sobre esta casa y sus antiguos habitantes. Tal vez encuentres alguna pista o alguna respuesta a tus preguntas. ¿Qué haces? \n \n a) Decides explorar la casa \n \n b) Decides salir de la casa  "
+);
+
+while (es2 != "a" && es1 != "b") {
+  console.log("Por favor solo escriba una opción, a o b");
+
+  es2 = prompt("Por favor solo escriba una opción, a o b");
+}
+
+if (es2 === "a") {
+  window.alert(
+    "Decides explorar la casa, a pesar del mal presentimiento que te da. Tal vez encuentres algo que te ayude a escapar del jardín, o al menos a entender qué está pasando. \n \n Pero eso lo dejamos para un futuro proximo, este simulador esta en construcciòn "
+  );
+  debugger;
+} else if (es1 === "b") {
+  window.alert(
+    "Decides salir de la casa, sin explorarla. Te parece un lugar demasiado oscuro y peligroso, y prefieres seguir buscando en el jardín. \n \n Pero eso lo dejamos para un futuro proximo, este simulador esta en construcciòn "
+  );
+  debugger;
+}
