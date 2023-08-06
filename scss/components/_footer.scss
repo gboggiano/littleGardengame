@@ -1,0 +1,101 @@
+/*All pages*/
+footer {
+  background-color: #18122b;
+}
+
+.footer--logo--box {
+  /* display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: yellow; */
+
+  background-color: #18122b;
+  padding: 10px;
+  /* background-color: #230068; */
+  /* padding: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer--logo {
+  /* background-color: blue; */
+  align-content: flex-start;
+  width: 20%;
+}
+
+.footer--logo img {
+  width: 100%;
+}
+
+.footer--disclaimer {
+  /* background-color: black; */
+  text-align: center;
+  align-self: last baseline;
+  display: flex;
+  flex-direction: column;
+}
+
+.cust-footer p {
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.footer--disclaimer hr {
+  width: 70%;
+  align-self: center;
+  margin-top: 33%;
+}
+
+.footer--menu {
+  /* background-color: aqua; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: start;
+  align-self: baseline;
+  height: auto;
+  gap: 5px;
+  padding: 15px;
+}
+
+.footer--menu h2 {
+  color: #fefefe;
+  padding: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.footer--menu ul {
+  /* -background-color: green;- */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-content: first baseline;
+  list-style: none;
+  gap: 13px;
+}
+
+.footer--menu ul li {
+  text-decoration: none;
+  color: #fefefe;
+  font-weight: bold;
+}
+
+/*flex Footer*/
+
+.row {
+  justify-content: space-between;
+}
+
+.custom-footer-text,
+.custom-footer-text-color {
+  text-align: right;
+  color: #fefefe;
+
+  h3 {
+    font-weight: bolder;
+  }
+}

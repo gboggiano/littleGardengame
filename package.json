@@ -1,7 +1,7 @@
 {
   "name": "javascriptproject",
   "version": "1.0.0",
-  "description": "",
+  "description": "JavaScript Academic Project - Retro RPG - Visual / Adventure / Horror",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

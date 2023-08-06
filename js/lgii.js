@@ -123,8 +123,97 @@ option2.innerText = "Camino de la derecha";
 option1.style.backgroundColor = "yellow";
 option2.style.backgroundColor = "blue";
 
-// crear a partir de un array de  string un listado para un desplegable
+//........ crear a partir de un array de  string un listado para un desplegable
 
 // usamos la clase welcomeS
 
+// vamos a crear el array primero
+
 const links = ["Home", "Contact", "Ubicacion"];
+
+//recorrer el link con for para tomar cada uno de esos objetos , voy  crear un elememnto dentro de links , en este caso haremos un li una lista
+
+// for (const link of links) {
+//   const li = document.createElement("li");
+//   // y que a cada li agregale un link
+//   li.innerHTML = link;
+//   //y ahora le vamos a  decir  a xxx  le vamos un appenchild de cada li que creemos
+//   sountrackJs.appendChild(li);
+//   //podemos agregar el color de fondo
+//   li.style.backgroundColor = "orange";
+// }
+
+//.........
+
+//vamos hacerlo con un objeto , recordando que el objeto contiene key - value
+
+// const productos = {
+//   id: 1,
+//   nombre: "Queso",
+//   precio: 5000,
+// };
+
+// //si yo quiero concatenar todo lo que esta en el objeto para que me figure como un string y que me mustre toda la informacion
+
+// // hacemos una const
+
+// const concatenado1 =
+//   "id:" +
+//   productos.id +
+//   " es el producto: " +
+//   productos.nombre +
+//   " $" +
+//   productos.precio;
+
+// console.log(concatenado1);
+
+// // lo que me permite el template string es reducir todo esto de aqui arriba
+
+// const concatenadoTemplateString = `Id: ${productos.id} es el Producto ${productos.nombre} $ ${productos.precio}`;
+
+// console.log(concatenadoTemplateString);
+
+// // vamos incorporarlo al HTML usando backsticks dentro de la seccion de soundtrackJS
+
+// sountrackJs.innerHTML = `<h2> Id: ${productos.id}  </h2>
+//                          <h3> Producto: ${productos.nombre} </h3>
+//                          <h4>  Precio: $${productos.precio} </h4> `;
+
+//                          const productos = {
+//   id: 1,
+//   nombre: "Queso",
+//   precio: 5000,
+// };
+
+const productos = [
+  {
+    id: 1,
+    nombre: "Queso",
+    precio: 5000,
+  },
+
+  {
+    id: 2,
+    nombre: "Harina",
+    precio: 650,
+  },
+  {
+    id: 3,
+    nombre: "Manteca",
+    precio: 1200,
+  },
+];
+
+// variable
+let ul = document.createElement("ul");
+
+productos.forEach((prod) => {
+  //incorporamos la creacion de li
+  ul.innerHTML += `<li>
+                    <h2> Id: ${prod.id}  </h2>
+                    <h3> Producto: ${prod.nombre} </h3>
+                    <h4>  Precio: $${prod.precio} </h4>
+                    </li> `;
+});
+
+sountrackJs.appendChild(ul);

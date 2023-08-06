@@ -5,6 +5,9 @@
 
 .banner--container__icg img {
   width: 100%;
+  height: auto;
+  background-size: cover;
+  opacity: 1;
 }
 
 .banner--message__icg {
@@ -14,10 +17,10 @@
   /* z-index: -1; */
   max-width: 100%;
   width: auto;
-  color: #fefefe;
-  box-shadow: 2px 5px 8px 0px rgba(0, 0, 0, 0.562);
+  color: #ffffff;
+  box-shadow: 5px 7px 8px 15px rgba(0, 0, 0, 0.562);
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   align-content: center;
   align-items: center;
 }
