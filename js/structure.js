@@ -73,3 +73,9 @@ formWelcome.appendChild(buttonA);
 const health = {
   sanity: 100,
 };
+
+//
+
+// array para el inventario
+
+let invent = [];
