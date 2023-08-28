@@ -71,42 +71,20 @@ if (ageValidation >= 18) {
   console.log("El usuario es menor de edad");
 }
 
-// -----
-
-function writteEffect(element, text, interv) {
-  let t = 0;
-  let timer = setInterval(function () {
-    if (t < text.length) {
-      element.innerHTML += text.charAt(t);
-      t++;
-    } else {
-      clearInterval(timer);
-    }
-  }, interv);
-}
-
 // -------  funcion que estructura e inicia el juego -----//
 
 function showScene(option) {
   sectionText.innerHTML = "";
   let p = document.createElement("p");
   p.className = "p"; //uso una clase en lugar de un id
-  p.style.fontSize = "30px";
   p.style.color = "#d9d9d9";
-  p.style.lineHeight = "40px";
-  p.style.textShadow = "3px 1px 8px black";
+  p.style.lineHeight = "25px";
   sectionText.appendChild(p);
-  //-----
-
-  //-----
-  // let span = document.createElement("span");
-  // span.className = "span"; //uso una clase en lugar de un id
-  // span.style.fontWeight = "bold";
-  // span.textContent = option;
-  // p.appendChild(span);
-  // // writteEffect(p, p.textContent, 100);
-
-  //
+  let span = document.createElement("span");
+  span.className = "span"; //uso una clase en lugar de un id
+  span.style.fontWeight = "bold";
+  span.textContent = option;
+  p.appendChild(span);
 
   // creacion de array donde se almacenan las opciones
 
@@ -114,11 +92,15 @@ function showScene(option) {
 
   switch (option) {
     case "Ir al inicio":
-      writteEffect(p, mainStory.beginning, 30);
+      p.textContent =
+        "Hola " +
+        sessionStorage.getItem("Usuario") +
+        ", estás atrapado en un extraño jardín lleno de plantas y flores exóticas, pero también de peligros y amenazas. No sabes cómo llegaste aquí, ni quién te ha traído. Lo único que sabes es que tienes que escapar antes de que sea demasiado tarde. El jardín está rodeado por una alta verja metálica, que impide tu salida. Dentro del jardín hay una casa abandonada, que parece ser la única construcción humana en este lugar. Tal vez allí encuentres alguna pista o alguna forma de salir. Pero ten cuidado, el jardín no es lo que parece. Hay cosas que se mueven entre las sombras, y sonidos que te helarán la sangre. Algunas plantas son carnívoras, y otras tienen propiedades alucinógenas. Y lo peor de todo, hay alguien más en el jardín, alguien que no quiere que salgas.... ";
       options = ["Vamos"];
       break;
     case "Vamos":
-      writteEffect(p, mainStory.actI, 30);
+      p.textContent =
+        "Te despiertas en medio del jardín, tumbado sobre el césped. Estás confundido y desorientado. No recuerdas nada de lo que ha pasado antes de llegar aquí. Lo último que recuerdas es estar en tu casa, preparándote para ir a dormir. Buscas alguna señal de civilización, alguna forma de comunicarte con el exterior. Pero no ves nada más que naturaleza salvaje, ni siquiera hay un camino o una senda por donde recorrer, solo estas tu y una mochila vacia a tu espalda. Entonces ves una verja metálica que rodea el jardín. Es alta y sólida, con puntas afiladas en la parte superior. Parece imposible saltarla o romperla... ¿que haces?";
       options = [
         "Tratar de forzarla con  la mano a ver si  cede de alguna manera",
         "No hacer nada y estudiar mi entorno",
