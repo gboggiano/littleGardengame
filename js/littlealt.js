@@ -31,8 +31,18 @@ function showInv() {
   invBut.classList = "btn btn-outline-info";
   sectionText.append(invBut);
   invBut.addEventListener("click", function () {
-    alert(invent.join(","));
+    Swal.fire({ text: invent.join(",") });
   });
+}
+
+// ----
+
+function showSanit() {
+  saniBut = document.createElement("button");
+  saniBut.innerHTML = health.sanity;
+  saniBut.classList = "btn btn-warning";
+  saniBut.style.marginLeft = "50%";
+  sectionText.appendChild(saniBut);
 }
 
 // ----- funcion para recibir el input del usuario ---
@@ -95,6 +105,7 @@ function showScene(option) {
   p.style.color = "#d9d9d9";
   p.style.lineHeight = "40px";
   p.style.textShadow = "3px 1px 8px black";
+  p.style.marginBottom = "7%";
   sectionText.appendChild(p);
   //-----
 
@@ -114,81 +125,83 @@ function showScene(option) {
 
   switch (option) {
     case "Ir al inicio":
-      writteEffect(p, mainStory.beginning, 30);
+      writteEffect(p, mainStory.beginning, 25);
       options = ["Vamos"];
       break;
     case "Vamos":
-      writteEffect(p, mainStory.actI, 30);
+      writteEffect(p, mainStory.actI, 25);
       options = [
         "Tratar de forzarla con  la mano a ver si  cede de alguna manera",
         "No hacer nada y estudiar mi entorno",
       ];
       showInv();
+      showSanit();
       break;
     case "Tratar de forzarla con  la mano a ver si  cede de alguna manera":
-      p.textContent =
-        "La reja estaba electrificada ¡recibes una descarga electrica!";
+      writteEffect(p, mainStory.actIa, 25);
       health.sanity = healthSus(health.sanity, 10);
       options = ["Te recuperas del Shock"];
       break;
     case "Te recuperas del Shock":
-      p.textContent =
-        "Vaya! sientes que tu salud mental va bajando, actualmente tu contador de sanidad está en  " +
-        health.sanity +
-        " ten cuidado! si llega a 0 posiblemente no sepamos mas de ti";
+      writteEffect(p, mainStory.actIab, 25);
       options = ["Avanzar"];
       showInv();
-      break;
-    case "No hacer nada y estudiar mi entorno":
-    case "Ok lo espero!":
-      p.textContent =
-        "Decides explorar el jardín en busca de alguna salida o alguna pista. Caminas sin rumbo fijo entre las plantas, evitando las más sospechosas o peligrosas. De repente, ves una casa al fondo del jardín. Es una casa antigua y deteriorada, con las ventanas rotas y la pintura desconchada. Parece abandonada desde hace años. Pero decides acercarte, llegas a la puerta te sientes incómodo en esta casa. Sientes que no deberías estar aquí, que hay algo malo en este lugar, pero te da curiosidad entrar. ¿que decides hacer?";
-      options = [
-        "Empujar la puerta en mal estado y entrar",
-        "Nop! darte media vuelta y explorar el jardin",
-      ];
-      showInv();
+      showSanit();
       break;
     case "Avanzar":
-      p.textContent =
-        "Decides explorar el jardín en busca de alguna salida o alguna pista. Caminas sin rumbo fijo entre las plantas, evitando las más sospechosas o peligrosas. De repente, ves una casa al fondo del jardín. Es una casa antigua y deteriorada, con las ventanas rotas y la pintura desconchada. Parece abandonada desde hace años. Pero decides acercarte, llegas a la puerta te sientes incómodo en esta casa. Sientes que no deberías estar aquí, que hay algo malo en este lugar, pero te da curiosidad entrar. ¿que decides hacer?";
+      writteEffect(p, mainStory.actIac, 25);
       options = [
         "Empujar la puerta en mal estado y entrar",
         "Nop! darte media vuelta y explorar el jardin",
       ];
       showInv();
+      showSanit();
       break;
     case "Empujar la puerta en mal estado y entrar":
-      p.textContent =
-        "Decides explorar la casa, a pesar del mal presentimiento que te da. Tal vez encuentres algo que te ayude a escapar del jardín, o al menos a entender qué está pasando...Recorres las habitaciones de la casa, buscando algo de interés. Pero no encuentras nada más que muebles viejos y rotos, objetos inservibles y basura acumulada... de pronto, sientes algo bajo tus pies, das un paso atrás y notas que estabas pisando un objeto puntiagudo, oxidado, en muy mal estado... te agachas para verlo de cerca... es... es... ¿Que decides hacer? ";
+      writteEffect(p, mainStory.actIad, 25);
       options = ["Tomar objeto", "Pasar de el y seguir explorando"];
       showInv();
+      showSanit();
       break;
 
     case "Tomar objeto":
       invent.push("Picahielo");
-      console.log(invent);
-      p.textContent =
-        "Has tomado lo que parece un picahielo y se ha agregado a tu invetario";
+      writteEffect(p, mainStory.actIae, 25);
       options = ["Seguir adelante"];
       break;
 
     case "Seguir adelante":
-      p.textContent =
-        "Estás a punto de salir, cuando ves una puerta cerrada al final del pasillo. Te llama la atención, porque es la única puerta que no está abierta. Te acercas a la puerta y la examinas. Tiene un letrero que dice “SÓTANO”. Está cerrada con un candado. Buscas algo con lo que romper el candado. Ves un martillo en el suelo, junto a unos clavos oxidados...Lo coges y golpeas el candado con fuerza. Tras varios intentos, logras romperlo... bajas por las escaleras, esta muy oscuro y huele a humedad, llegas a lo que parece ser un espacio amplio... se ven varias formas de todos los tamaños entre la penumbra.. ¿que decides hacer?  ";
+      writteEffect(p, mainStory.actIaf, 25);
       options = [
-        "Tratar de caminar hasta toparme con algo",
+        "Tratar de buscar algo que pueda darme un poco de luz",
         "Dar media vuelta y regresar por donde vine",
       ];
       showInv();
+      showSanit();
       break;
 
-    case "Nop! darte media vuelta y explorar el jardin":
-      p.textContent =
-        "Esta linea de la historia será entregada en el proyecto final, por favor prueba la otra opción";
-      options = ["Ok lo espero!"];
+    case "Tratar de buscar algo que pueda darme un poco de luz":
+      writteEffect(p, mainStory.actIag, 25);
+      options = [
+        "Abrir el frasco para revisarlo",
+        "Dejar el frasco y seguir explorando el sótano",
+      ];
+      showInv();
+      showSanit();
       break;
-
+    case "Abrir el frasco para revisarlo":
+      writteEffect(p, mainStory.actIah, 25);
+      options = ["Tratar de serenarte"];
+      showInv();
+      showSanit();
+      break;
+    case "Tratar de serenarte":
+      writteEffect(p, mainStory.actIai, 25);
+      health.sanity = healthSus(health.sanity, 20);
+      options = ["Toma un respiro profundo, concentrate!"];
+      showInv();
+      showSanit();
+      break;
     default:
       p.textContent =
         "Te doy las gracias " +
@@ -208,7 +221,7 @@ function showScene(option) {
     let buttonG = document.createElement("button");
     buttonG.id = "button" + i + option; //genero un id único para cada botón, usando el índice y la opción
     buttonG.textContent = options[i];
-    buttonG.classList = "btn btn-secondary";
+    buttonG.classList = "btn btn-outline-primary";
     buttonG.style.display = "flex";
     buttonG.style.flexDirection = "column";
     buttonG.style.gap = "20px";
