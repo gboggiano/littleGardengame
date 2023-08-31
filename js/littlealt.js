@@ -149,6 +149,7 @@ function showScene(option) {
       showSanit();
       break;
     case "Avanzar":
+    case "No hacer nada y estudiar mi entorno":
       writteEffect(p, mainStory.actIac, 25);
       options = [
         "Empujar la puerta en mal estado y entrar",
@@ -202,13 +203,79 @@ function showScene(option) {
       showInv();
       showSanit();
       break;
+    case "Toma un respiro profundo, concentrate!":
+      writteEffect(p, mainStory.actIaj, 25);
+      options = [
+        "Subir a la planta superior",
+        "Seguir explorando el sótano en busqueda de algo que pueda curarme",
+      ];
+      showInv();
+      showSanit();
+      break;
+    case "Subir a la planta superior":
+      writteEffect(p, mainStory.actIak, 25);
+      options = ["Darte la vuelta!"];
+      showInv();
+      showSanit();
+      break;
+    case "Darte la vuelta!":
+      writteEffect(p, mainStory.actIal, 25);
+      options = ["DEFENDERTE!", "CORRER!"];
+      showInv();
+      showSanit();
+      break;
+    case "DEFENDERTE!":
+      writteEffect(p, mainStory.actIam, 25);
+      options = [
+        "Levantate! y sigue avazando",
+        "Quédate en el suelo y tómate un momento",
+      ];
+      showInv();
+      showSanit();
+      break;
+    case "Levantate! y sigue avazando":
+    case "Quédate en el suelo y tómate un momento":
+      writteEffect(p, mainStory.actIan, 25);
+      health.sanity = healthSus(health.sanity, 80);
+      options = ["..."];
+      showInv();
+      showSanit();
+      break;
+    case "...":
+      writteEffect(p, mainStory.actIFin, 25);
+      options = ["Mors solum initium est"];
+      showInv();
+      showSanit();
+      break;
+
+    case "Dejar el frasco y seguir explorando el sótano":
+      invent.push("Antiséptico");
+      writteEffect(p, mainStory.actIba, 25);
+      options = ["Mochila a la espalda y seguimos!"];
+      showInv();
+      showSanit();
+      break;
+    case "Mochila a la espalda y seguimos!":
+      writteEffect(p, mainStory.actIbb, 25);
+      options = ["Preguntar : quién eres? cómo salgo de aquí?", ""];
+      showInv();
+      showSanit();
+      break;
+    case "Pasar de el y seguir explorando":
+      writteEffect(p, mainStory.acIafDOS, 25);
+      options = [
+        "Tratar de buscar algo que pueda darme un poco de luz",
+        "Dar media vuelta y regresar por donde vine",
+      ];
+      showInv();
+      showSanit();
+      break;
+
     default:
-      p.textContent =
-        "Te doy las gracias " +
-        sessionStorage.getItem("Usuario") +
-        " por probar este proyecto, la version final estará lista pronto y tendrá una cantidad de correciones y efectos interesantes, no desesperes! lo bueno se hace esperar ;)";
+      writteEffect(p, mainStory.mainEnd, 25);
       options = ["Ir al inicio"];
       deleteInv(invent);
+      health.sanity = 100;
       break;
   }
 
