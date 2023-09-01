@@ -1,7 +1,5 @@
 formWelcome.addEventListener("submit", validation);
 
-// ----- funcion para borrar elementos HTML ---
-
 function deleteElements(item) {
   let elements = item.children;
   for (let i = elements.length - 1; i >= 0; i--) {
@@ -9,7 +7,6 @@ function deleteElements(item) {
   }
 }
 
-// ----- funcion que resta o suma la vida del jugador ------
 function healthSum(num1, num2) {
   return num1 + num2;
 }
@@ -18,13 +15,10 @@ function healthSus(num1, num2) {
   return num1 - num2;
 }
 
-// ---funcion para remover del inventario todo despues de volver a comenzar
-
 function deleteInv(inv) {
   inv.splice(0, 1);
 }
 
-// ---- funcion para crear inventario y mostrarlo
 function showInv() {
   invBut = document.createElement("button");
   invBut.innerHTML = `Inventario`;
@@ -35,8 +29,6 @@ function showInv() {
   });
 }
 
-// ----
-
 function showSanit() {
   saniBut = document.createElement("button");
   saniBut.innerHTML = health.sanity;
@@ -45,9 +37,7 @@ function showSanit() {
   sectionText.appendChild(saniBut);
 }
 
-// ----- funcion para recibir el input del usuario ---
 function validation(e) {
-  // e.preventDefault();
   let form = e.target;
   let inputA = form.children[1].value;
   let inputB = form.children[3].value;
@@ -62,26 +52,19 @@ function validation(e) {
   }
 }
 
-// validar que dentro de session storage el usuario sea mayor de edad --
-
 let ageString = sessionStorage.getItem("Edad");
-let ageValidation = parseInt(ageString, 10); // indicar decimales para que tome los 2 numeros --
+let ageValidation = parseInt(ageString, 10);
 
-//recorre hasta el numero  que indicó el usuario para validar si es mayor o menor --
 for (let i = 1; i <= ageValidation; i++) {
   console.log(i);
 }
 
-// llame a la funcion que borra todo el HTML y deja espacio para el espacio de texto --
 if (ageValidation >= 18) {
-  console.log("El usuario es mayor de edad");
   showScene("Ir al inicio");
   deleteElements(formWelcome);
 } else {
   console.log("El usuario es menor de edad");
 }
-
-// -----
 
 function writteEffect(element, text, interv) {
   let t = 0;
@@ -95,31 +78,16 @@ function writteEffect(element, text, interv) {
   }, interv);
 }
 
-// -------  funcion que estructura e inicia el juego -----//
-
 function showScene(option) {
   sectionText.innerHTML = "";
   let p = document.createElement("p");
-  p.className = "p"; //uso una clase en lugar de un id
+  p.className = "p";
   p.style.fontSize = "30px";
   p.style.color = "#d9d9d9";
   p.style.lineHeight = "40px";
   p.style.textShadow = "3px 1px 8px black";
   p.style.marginBottom = "7%";
   sectionText.appendChild(p);
-  //-----
-
-  //-----
-  // let span = document.createElement("span");
-  // span.className = "span"; //uso una clase en lugar de un id
-  // span.style.fontWeight = "bold";
-  // span.textContent = option;
-  // p.appendChild(span);
-  // // writteEffect(p, p.textContent, 100);
-
-  //
-
-  // creacion de array donde se almacenan las opciones
 
   let options = [];
 
@@ -160,7 +128,7 @@ function showScene(option) {
       break;
     case "Empujar la puerta en mal estado y entrar":
       writteEffect(p, mainStory.actIad, 25);
-      options = ["Tomar objeto", "Pasar de el y seguir explorando"];
+      options = ["Tomar objeto"];
       showInv();
       showSanit();
       break;
@@ -247,7 +215,6 @@ function showScene(option) {
       showInv();
       showSanit();
       break;
-
     case "Dejar el frasco y seguir explorando el sótano":
       invent.push("Antiséptico");
       writteEffect(p, mainStory.actIba, 25);
@@ -256,21 +223,119 @@ function showScene(option) {
       showSanit();
       break;
     case "Mochila a la espalda y seguimos!":
-      writteEffect(p, mainStory.actIbb, 25);
-      options = ["Preguntar : quién eres? cómo salgo de aquí?", ""];
-      showInv();
-      showSanit();
-      break;
-    case "Pasar de el y seguir explorando":
-      writteEffect(p, mainStory.acIafDOS, 25);
+      writteEffect(p, mainStory.acIbb, 25);
       options = [
-        "Tratar de buscar algo que pueda darme un poco de luz",
-        "Dar media vuelta y regresar por donde vine",
+        "Preguntar : quién eres? cómo salgo de aquí?",
+        "TOMAR LA INICIATIVA y ATACAR",
       ];
       showInv();
       showSanit();
       break;
+    case "Preguntar : quién eres? cómo salgo de aquí?":
+      writteEffect(p, mainStory.acIbc, 25);
+      options = ["que caraj...!"];
+      showInv();
+      showSanit();
+      break;
+    case "que caraj...!":
+      writteEffect(p, mainStory.acIbd, 25);
+      options = ["Mirarte la herida del pecho"];
+      showInv();
+      showSanit();
+      break;
+    case "Mirarte la herida del pecho":
+      writteEffect(p, mainStory.acIbe, 25);
+      health.sanity = healthSus(health.sanity, 80);
+      options = ["Espera el Antiséptico! voy aplicarmelo"];
+      showInv();
+      showSanit();
+      break;
+    case "Espera el Antiséptico! voy aplicarmelo":
+      writteEffect(p, mainStory.acIbf, 25);
+      health.sanity = healthSum(health.sanity, 50);
+      options = ["Observar el cadaver del anciano"];
+      showInv();
+      showSanit();
+      break;
+    case "Observar el cadaver del anciano":
+      writteEffect(p, mainStory.acIbg, 25);
+      options = ["No voy a morir aquí! vamos!"];
+      showInv();
+      showSanit();
+      break;
+    case "No voy a morir aquí! vamos!":
+    case "Nop! darte media vuelta y explorar el jardin":
+      writteEffect(p, mainStory.acIbh, 25);
+      options = ["La espero con ansias!"];
+      showInv();
+      showSanit();
+      break;
+    case "TOMAR LA INICIATIVA y ATACAR":
+      writteEffect(p, mainStory.acIbi, 25);
+      options = ["...."];
+      showInv();
+      showSanit();
+      break;
+    case "....":
+      writteEffect(p, mainStory.acIbj, 25);
+      options = ["Cerrar los ojos y aceptar el final del camino"];
+      showInv();
+      showSanit();
+      break;
+    case "CORRER!":
+      writteEffect(p, mainStory.acIbk, 25);
+      options = ["...."];
+      showInv();
+      showSanit();
+      break;
+    case "Dar media vuelta y regresar por donde vine":
+      writteEffect(p, mainStory.acIbl, 25);
+      options = [
+        "Preguntar : quién eres? cómo salgo de aquí?.",
+        "TOMAR LA INICIATIVA y ATACAR",
+      ];
+      showInv();
+      showSanit();
+      break;
+    case "Preguntar : quién eres? cómo salgo de aquí?.":
+      writteEffect(p, mainStory.acIbm, 25);
+      options = ["que caraj..!"];
+      showInv();
+      showSanit();
+      break;
+    case "que caraj..!":
+      writteEffect(p, mainStory.acIbn, 25);
+      options = ["Mirarte la herida del pecho, no luce bien"];
+      showInv();
+      showSanit();
+      break;
+    case "Mirarte la herida del pecho, no luce bien":
+      writteEffect(p, mainStory.acIbo, 25);
+      health.sanity = healthSus(health.sanity, 80);
+      options = ["Buscar algo para parar la hemorragia!"];
+      showInv();
+      showSanit();
+      break;
 
+    case "Buscar algo para parar la hemorragia!":
+      writteEffect(p, mainStory.acIbp, 25);
+      options = ["No tengo nada!"];
+      showInv();
+      showSanit();
+      break;
+    case "No tengo nada!":
+      writteEffect(p, mainStory.acIbq, 25);
+      health.sanity = healthSus(health.sanity, 20);
+      options = ["Dejarte llevar...no hay nada que hacer"];
+      showInv();
+      showSanit();
+      break;
+    case "Seguir explorando el sótano en busqueda de algo que pueda curarme":
+      writteEffect(p, mainStory.acIext, 25);
+      options = ["...."];
+      showInv();
+      showSanit();
+      break;
     default:
       writteEffect(p, mainStory.mainEnd, 25);
       options = ["Ir al inicio"];
@@ -282,11 +347,9 @@ function showScene(option) {
   let br = document.createElement("br");
   sectionText.appendChild(br);
 
-  //bucle para crear los botones segun la cantidad de opciones
-
   for (let i = 0; i < options.length; i++) {
     let buttonG = document.createElement("button");
-    buttonG.id = "button" + i + option; //genero un id único para cada botón, usando el índice y la opción
+    buttonG.id = "button" + i + option;
     buttonG.textContent = options[i];
     buttonG.classList = "btn btn-outline-primary";
     buttonG.style.display = "flex";
@@ -295,8 +358,6 @@ function showScene(option) {
     buttonG.style.marginTop = "20px";
 
     sectionText.append(buttonG);
-
-    //
 
     buttonG.addEventListener("click", function () {
       showScene(this.textContent);
