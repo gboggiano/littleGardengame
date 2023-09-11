@@ -54,8 +54,10 @@ const health = {
   sanity: 100,
 };
 
+// Array que recibe input del usuario
 let invent = [];
 
+// Objeto con la historia del juego
 let mainStory = {
   beginning:
     "Hola " +

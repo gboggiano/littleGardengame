@@ -19,6 +19,7 @@ function deleteInv(inv) {
   inv.splice(0, 1);
 }
 
+// funcion que muestra el inventario (trae los items del array) ------
 function showInv() {
   invBut = document.createElement("button");
   invBut.innerHTML = `Inventario`;
@@ -56,15 +57,30 @@ let ageString = sessionStorage.getItem("Edad");
 let ageValidation = parseInt(ageString, 10);
 
 for (let i = 1; i <= ageValidation; i++) {
-  console.log(i);
+  console.log(".");
 }
 
+// Condicional con asincronía + SweetAlert ---------
 if (ageValidation >= 18) {
   showScene("Ir al inicio");
   deleteElements(formWelcome);
+  setTimeout(() => {
+    Swal.fire({
+      title:
+        "Recuerda que este juego tiene música de fondo! revisa tu navegador y la reproducción automática ",
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+    });
+  }, 2000);
 } else {
   console.log("El usuario es menor de edad");
 }
+
+// Funcion de orden superior que da el efecto de escritura -----
 
 function writteEffect(element, text, interv) {
   let t = 0;
@@ -77,7 +93,7 @@ function writteEffect(element, text, interv) {
     }
   }, interv);
 }
-
+//Funcion que genera una escena nueva dependiendo de la opción ----
 function showScene(option) {
   sectionText.innerHTML = "";
   let p = document.createElement("p");
@@ -89,8 +105,9 @@ function showScene(option) {
   p.style.marginBottom = "7%";
   sectionText.appendChild(p);
 
+  // Array donde se almacenan las opciones del juego ------
   let options = [];
-
+  // -------
   switch (option) {
     case "Ir al inicio":
       writteEffect(p, mainStory.beginning, 25);
@@ -337,6 +354,16 @@ function showScene(option) {
       showSanit();
       break;
     default:
+      ShowMessage0k()
+        .then((success) => {
+          console.log("Jugador terminó con menos de 0 de sanidad");
+        })
+        .catch((reject) => {
+          console.log("Jugador terminó con mas de 0 de sanidad");
+        })
+        .finally(() => {
+          console.log("fin del juego");
+        });
       writteEffect(p, mainStory.mainEnd, 25);
       options = ["Ir al inicio"];
       deleteInv(invent);
@@ -361,6 +388,37 @@ function showScene(option) {
 
     buttonG.addEventListener("click", function () {
       showScene(this.textContent);
+    });
+  }
+
+  // --- Promesa al finalizar el juego - then y catch despues de default en el Switch
+
+  function ShowMessage0k() {
+    return new Promise((resolve, reject) => {
+      const success = health.sanity;
+      if (success < 0) {
+        resolve(
+          Swal.fire({
+            title: "Desarrollador, Comision y Prof :",
+            text: "gboggiano, Comision 55290 , Alejandro Daniel ",
+            imageUrl: "./assets/Coder.png",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image",
+          })
+        );
+      } else if (health.sanity >= 0) {
+        reject(
+          Swal.fire({
+            title: "Desarrollador, Comision y Prof :",
+            text: "gboggiano, Comision 55290 , Alejandro Daniel ",
+            imageUrl: "./assets/Coder.png",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image",
+          })
+        );
+      }
     });
   }
 }
