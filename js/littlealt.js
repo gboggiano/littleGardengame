@@ -30,6 +30,26 @@ function showInv() {
   });
 }
 
+// funcion del boton que consume api externa y muestra por consola
+
+Apibutton.addEventListener("click", function () {
+  fetch("https://6500b4f118c34dee0cd551a8.mockapi.io/vglist")
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+});
+
+// --------------------------
+
+ApibuttonTwo.addEventListener("click", function () {
+  fetch("https://jsonplaceholder.typicode.com/posts/1")
+    .then((res) => res.json())
+    .then((data) => {
+      Swal.fire(data.body);
+    })
+    .catch((error) => console.error(error));
+});
+
 function showSanit() {
   saniBut = document.createElement("button");
   saniBut.innerHTML = health.sanity;

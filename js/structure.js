@@ -53,12 +53,18 @@ buttonA.style.padding = ".5rem 1rem";
 buttonA.innerHTML = `<h2> Listo! </h2>`;
 buttonA.classList = "btn btn-outline-warning";
 const Apilabel = document.createElement("label");
-Apilabel.innerHTML = `<p> Mi pasión siempre han sido los videojuegos de terror, no te pierdas esta lista de recomendados... que sin dudas te dará mucho en que pensar.. sobre todo esta noche... antes de irte a dormir - Dross</p>`;
+Apilabel.innerHTML = `<p> Mi pasión siempre han sido los videojuegos de terror, no te pierdas esta lista de recomendados...- (listados de test / conexión con API - mockAPI y JSONplaceholder))</p>`;
 Apilabel.style.color = "#fafafa";
 const Apibutton = document.createElement("button");
-Apibutton.innerHTML = `<h4> Muestrame</h4>`;
-Apibutton.style.padding = ".3rem 1rem";
+Apibutton.innerHTML = `<h5> Muestrame por consola (Hacker Style)</h5>`;
+// Apibutton.style.padding = ".3rem 1rem";
+Apibutton.style.margin = "2%";
 Apibutton.classList = "btn btn-outline-danger";
+const ApibuttonTwo = document.createElement("button");
+ApibuttonTwo.innerHTML = `<h5> Muestrame en pop-up</h5>`;
+// ApibuttonTwo.style.padding = ".3rem 1rem";
+ApibuttonTwo.style.margin = "2%";
+ApibuttonTwo.classList = "btn btn-outline-success";
 
 // --
 formWelcome.appendChild(labelA);
@@ -68,6 +74,7 @@ formWelcome.appendChild(inputB);
 formWelcome.appendChild(buttonA);
 sectionApidiv.appendChild(Apilabel);
 sectionApidiv.appendChild(Apibutton);
+sectionApidiv.appendChild(ApibuttonTwo);
 
 const health = {
   sanity: 100,
