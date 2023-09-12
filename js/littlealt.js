@@ -19,7 +19,7 @@ function deleteInv(inv) {
   inv.splice(0, 1);
 }
 
-// funcion que muestra el inventario (trae los items del array) ------
+// funcion que crea y muestra el inventario (trae los items del array) ------
 function showInv() {
   invBut = document.createElement("button");
   invBut.innerHTML = `Inventario`;
