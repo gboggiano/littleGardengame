@@ -39,7 +39,7 @@ Apibutton.addEventListener("click", function () {
     .catch((error) => console.error(error));
 });
 
-// --------------------------
+// boton que consume API externa y muestra en pop-up
 
 ApibuttonTwo.addEventListener("click", function () {
   fetch("https://jsonplaceholder.typicode.com/posts/1")
@@ -411,7 +411,7 @@ function showScene(option) {
     });
   }
 
-  // --- Promesa al finalizar el juego - then y catch despues de default en el Switch
+  // --- Promesa al finalizar el juego - then, catch y finally despues de default en el Switch
 
   function ShowMessage0k() {
     return new Promise((resolve, reject) => {

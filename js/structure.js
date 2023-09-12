@@ -28,7 +28,7 @@ const sectionApidiv = document.createElement("div");
 //--
 displayContainer.classList = "container-md";
 
-//--
+//-- Nesting
 mainJs.appendChild(sectionDisplay);
 sectionDisplay.append(displayContainer);
 displayContainer.appendChild(formWelcome);
@@ -37,7 +37,7 @@ displayContainer.appendChild(iframe);
 mainJs.appendChild(sectionApi);
 sectionApi.appendChild(sectionApidiv);
 
-//--
+//-- Botones y etiquetas
 const labelA = document.createElement("label");
 labelA.innerHTML = `<h2>Nombre:</h2>`;
 labelA.style.color = "#d9d9d9";
@@ -76,6 +76,7 @@ sectionApidiv.appendChild(Apilabel);
 sectionApidiv.appendChild(Apibutton);
 sectionApidiv.appendChild(ApibuttonTwo);
 
+// objeto que representa vida de usuario
 const health = {
   sanity: 100,
 };
