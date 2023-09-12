@@ -16,6 +16,14 @@ const iframe = document.createElement("iframe");
 let sound = new Audio("./assets/ambient.mp3");
 sound.autoplay = "true";
 sound.play();
+const sectionApi = document.createElement("section");
+sectionApi.style.backgroundColor = "#241c45";
+sectionApi.setAttribute("class", "apiBoxsection");
+sectionApi.style.display = "flex";
+sectionApi.style.flexDirection = "column";
+sectionApi.style.textAlign = "center";
+sectionApi.style.padding = "30px ";
+const sectionApidiv = document.createElement("div");
 
 //--
 displayContainer.classList = "container-md";
@@ -26,6 +34,8 @@ sectionDisplay.append(displayContainer);
 displayContainer.appendChild(formWelcome);
 displayContainer.appendChild(sectionText);
 displayContainer.appendChild(iframe);
+mainJs.appendChild(sectionApi);
+sectionApi.appendChild(sectionApidiv);
 
 //--
 const labelA = document.createElement("label");
@@ -42,6 +52,13 @@ const buttonA = document.createElement("button");
 buttonA.style.padding = ".5rem 1rem";
 buttonA.innerHTML = `<h2> Listo! </h2>`;
 buttonA.classList = "btn btn-outline-warning";
+const Apilabel = document.createElement("label");
+Apilabel.innerHTML = `<p> Mi pasión siempre han sido los videojuegos de terror, no te pierdas esta lista de recomendados... que sin dudas te dará mucho en que pensar.. sobre todo esta noche... antes de irte a dormir - Dross</p>`;
+Apilabel.style.color = "#fafafa";
+const Apibutton = document.createElement("button");
+Apibutton.innerHTML = `<h4> Muestrame</h4>`;
+Apibutton.style.padding = ".3rem 1rem";
+Apibutton.classList = "btn btn-outline-danger";
 
 // --
 formWelcome.appendChild(labelA);
@@ -49,6 +66,8 @@ formWelcome.appendChild(inputA);
 formWelcome.appendChild(labelB);
 formWelcome.appendChild(inputB);
 formWelcome.appendChild(buttonA);
+sectionApidiv.appendChild(Apilabel);
+sectionApidiv.appendChild(Apibutton);
 
 const health = {
   sanity: 100,
