@@ -1,3 +1,6 @@
+-------------
+Link to play https://gboggiano.github.io/littleGardengame/
+-------------
 # littleGardengame
 
 JavaScript Academic Project - Retro RPG - Visual / Adventure / Horror
